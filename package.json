@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
-    "export": "next export",
+    "export": "next export --debug",
     "deploy": "npm run build && npm run export",
     "test": "jest --config jest.config.ts",
     "lint": "next lint"
