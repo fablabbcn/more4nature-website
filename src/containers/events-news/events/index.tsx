@@ -1,9 +1,13 @@
 import PastEvents from '@/containers/events-news/events/past-events';
 import UpcomingEvents from '@/containers/events-news/events/upcoming-events';
-
 import Wrapper from '@/components/ui/wrapper';
+import type { Event } from '@/data/events';
 
-export default function EventsShowcase() {
+type EventsShowcaseProps = {
+  events: Event[];
+};
+
+export default function EventsShowcase({ events }: EventsShowcaseProps) {
   return (
     <Wrapper className="space-y-14">
       <div className="grid grid-cols-12">
@@ -15,8 +19,8 @@ export default function EventsShowcase() {
           </p>
         </div>
       </div>
-      <UpcomingEvents />
-      <PastEvents />
+      <UpcomingEvents events={events} />
+      <PastEvents events={events} />
     </Wrapper>
   );
 }
