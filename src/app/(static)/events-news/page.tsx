@@ -1,3 +1,5 @@
+'use client';
+
 import { QueryClient, dehydrate, HydrationBoundary } from '@tanstack/react-query';
 
 import { EventsService } from '@/lib/events.service';
@@ -8,7 +10,7 @@ import events from '@/data/events';
 import news from '@/data/news';
 
 import EventsShowcase from '@/containers/events-news/events';
-import News from '@/containers/events-news/news';
+import NewsList from '@/containers/events-news/news/list';
 
 import StaticIntro from '@/components/static-intro';
 
@@ -42,7 +44,7 @@ export default async function EventsNews() {
     <HydrationBoundary state={dehydrate(queryClient)}>
       <StaticIntro className="bg-[url('/images/twilight.webp')] bg-bottom" />
       <EventsShowcase />
-      <News />
+      <NewsList />
     </HydrationBoundary>
   );
 }
