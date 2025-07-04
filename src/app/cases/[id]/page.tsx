@@ -25,6 +25,13 @@ const prefetchData = async (queryClient: QueryClient, id: string) => {
   }
 };
 
+// Tell Next.js which IDs to export to built the static site for GH Pages
+export function generateStaticParams() {
+  return CASE_STUDIES.map((c) => ({
+    id: c.id.toString(),
+  }));
+}
+
 export default async function CaseDetail({ params: { id } }: { params: { id: string } }) {
   const queryClient = new QueryClient();
   await prefetchData(queryClient, id);
